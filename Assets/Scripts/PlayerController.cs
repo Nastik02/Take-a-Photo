@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    public Animator animator;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +27,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Movement();
-        
+        animator.SetFloat("HorizontalSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal") * speed));
+        animator.SetFloat("VerticalSpeed", Input.GetAxisRaw("Vertical") * speed);
     }
     private void Movement()
     {
