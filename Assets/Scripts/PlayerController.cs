@@ -9,14 +9,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     public Animator animator;
-    public Transform firstPoint;
+    /*public Transform firstPoint;
     public GameObject FirstCheckPoint;
     public GameObject photoicon1;
     public GameObject photoicon2;
     public GameObject photoicon3;
     public Transform secondPoint;
     public Transform thirdPoint;
-    public GameObject albMenu;
+    public GameObject albMenu;*/
     
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         sprite.flipX = Input.GetAxis("Horizontal") < 0.0f;
-        if (Vector2.Distance(transform.position, firstPoint.transform.position) < 2f && Input.GetKey(KeyCode.F))
+        /*if (Vector2.Distance(transform.position, firstPoint.transform.position) < 2f && Input.GetKey(KeyCode.F))
         {
             photoicon1.SetActive(true);
             animator.SetTrigger("takePhoto");
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             photoicon3.SetActive(true);
             animator.SetTrigger("takePhoto");
             thirdPoint.SendMessage("Destroy");
-        }
+        }*/
     }
     void FixedUpdate()
     {
