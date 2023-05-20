@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9122024171051609696}
   - component: {fileID: 9122024171051609697}
   - component: {fileID: 9122024171051609702}
-  - component: {fileID: 9122024171051609725}
   m_Layer: 0
   m_Name: Axolotl
   m_TagString: Player
@@ -126,18 +125,6 @@ MonoBehaviour:
   secondPoint: {fileID: 0}
   thirdPoint: {fileID: 0}
   albMenu: {fileID: 0}
---- !u!114 &9122024171051609725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9122024171051609703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ca0643c8870294c89dbc94decfe3b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9122024171964254233
 GameObject:
   m_ObjectHideFlags: 0
