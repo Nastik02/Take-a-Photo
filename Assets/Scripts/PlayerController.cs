@@ -9,10 +9,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     public Animator animator;
+    public Transform firstPoint;
+    public GameObject FirstCheckPoint;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+
     }
     void Start()
     {
@@ -23,6 +26,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         sprite.flipX = Input.GetAxis("Horizontal") < 0.0f;
+        if (Vector2.Distance(transform.position, firstPoint.transform.position) < 2f && Input.GetKey(KeyCode.F))
+        {
+            animator.SetTrigger("takePhoto");
+            firstPoint.SendMessage("Destroy");
+        }
     }
     void FixedUpdate()
     {
