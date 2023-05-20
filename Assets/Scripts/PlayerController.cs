@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Transform firstPoint;
     public GameObject FirstCheckPoint;
+    public GameObject photoicon1;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         sprite.flipX = Input.GetAxis("Horizontal") < 0.0f;
         if (Vector2.Distance(transform.position, firstPoint.transform.position) < 2f && Input.GetKey(KeyCode.F))
         {
+            photoicon1.SetActive(true);
             animator.SetTrigger("takePhoto");
             firstPoint.SendMessage("Destroy");
         }

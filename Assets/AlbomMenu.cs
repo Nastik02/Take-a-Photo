@@ -5,16 +5,25 @@ using UnityEngine.UI;
 
 public class AlbomMenu : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public GameObject albom;
+    public GameObject firstphotomenu;
+   
+    public void Pause()
     {
-        
+        albom.SetActive(true);
+        Time.timeScale=0f;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Continue()
     {
-        
+        Time.timeScale = 1f;
+        albom.SetActive(false);
+    }
+    public void SetFirstPhotoMenuActive()
+    {
+        firstphotomenu.SetActive(true);
+    }
+    public void SetFirstPhotoMenuClose()
+    {
+        firstphotomenu.SetActive(false);
     }
 }
