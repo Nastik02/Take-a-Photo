@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Transform secondPoint;
     public Transform thirdPoint;
     public GameObject albMenu;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
         direction.y = Input.GetAxis("Vertical");
         rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
+    
 
 
 }

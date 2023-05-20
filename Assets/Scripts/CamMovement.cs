@@ -6,10 +6,10 @@ using UnityEngine;
 public class CamMovement : MonoBehaviour
 {
     public GameObject player;
-    [SerializeField]private float LeftLimit;
-    [SerializeField] private float RightLimit;
-    [SerializeField] private float UpLimit;
-    [SerializeField] private float DownLimit;
+    private float LeftLimit=-0.51f;
+    private float RightLimit=34;
+    private float UpLimit=-1.37f;
+    private float DownLimit=-8.79f;
 
     void LateUpdate()
     {
