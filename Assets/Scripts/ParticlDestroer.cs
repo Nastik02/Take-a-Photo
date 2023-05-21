@@ -20,12 +20,12 @@ namespace Assets.Scripts
         }
         private IEnumerator Destroy()
         {
-            for(float f = 0.05f; f <= 1; f += 0.05f)
+            for(float f = 1f; f >= 0; f -= 0.05f)
             {
                 Color color = sprite.material.color;
                 color.a = f;
                 sprite.material.color = color;
-                yield return new WaitForSeconds(0.008f);
+                yield return new WaitForSeconds(0.07f);
             }
             Destroy(this.gameObject);
         }
