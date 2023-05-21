@@ -25,7 +25,7 @@ namespace Assets.Scripts
                 Color color = sprite.material.color;
                 color.a = f;
                 sprite.material.color = color;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.008f);
             }
             Destroy(this.gameObject);
         }

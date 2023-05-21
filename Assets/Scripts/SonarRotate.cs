@@ -11,6 +11,7 @@ namespace Assets.Scripts
         private float rotationSpeed = 360f;
         public GameObject effect;
         public GameObject crEffect;
+        public GameObject cr2Effect;
 
         private void Awake()
         {
@@ -29,6 +30,10 @@ namespace Assets.Scripts
             if (hit && hit.collider.gameObject.CompareTag("Creature1"))
             {
                 Instantiate(crEffect, hit.point, Quaternion.identity);
+            }
+            if (hit && hit.collider.gameObject.CompareTag("Creature2"))
+            {
+                Instantiate(cr2Effect, hit.point, Quaternion.identity);
             }
         }
         private void Update()
