@@ -9,6 +9,7 @@ public class AlbomMenu : MonoBehaviour
     public GameObject firstphotomenu;
     public GameObject secondphotomenu;
     public GameObject thirdphotomenu;
+    public GameObject fourthphotomenu;
     public GameObject firstbutton;
     public GameObject secondbutton;
     public bool issecondopen=false;
@@ -67,6 +68,16 @@ public class AlbomMenu : MonoBehaviour
         {
             secondbutton.SetActive(true);
         }
+    }
+    public void SetFourthPhotoMenuActive()
+    {
+        secondbutton.SetActive(false);
+        fourthphotomenu.SetActive(true);
+    }
+    public void SetFourthPhotoMenuClose()
+    {
+        fourthphotomenu.SetActive(false);
+        secondbutton.SetActive(true);
     }
 
 }
