@@ -15,6 +15,7 @@ namespace Assets.Scripts
         public Transform secondPoint;
         public Transform thirdPoint;
         public GameObject albMenu;
+        public AudioSource sound;
 
         // Use this for initialization
         void Start()
@@ -30,6 +31,7 @@ namespace Assets.Scripts
                 photoicon1.SetActive(true);
                 animator.SetTrigger("takePhoto");
                 firstPoint.SendMessage("Destroy");
+                sound.Play();
             }
             if (Vector2.Distance(transform.position, secondPoint.transform.position) < 2f && Input.GetKey(KeyCode.F))
             {
@@ -37,12 +39,14 @@ namespace Assets.Scripts
                 animator.SetTrigger("takePhoto");
                 secondPoint.SendMessage("Destroy");
                 albMenu.SendMessage("Setter");
+                sound.Play();
             }
             if (Vector2.Distance(transform.position, thirdPoint.transform.position) < 2f && Input.GetKey(KeyCode.F))
             {
                 photoicon3.SetActive(true);
                 animator.SetTrigger("takePhoto");
                 thirdPoint.SendMessage("Destroy");
+                sound.Play();
             }
         }
     }

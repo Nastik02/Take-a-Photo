@@ -9,6 +9,7 @@ namespace Assets.Scripts
         public Transform firstPoint;
         public GameObject creature;
         public GameObject photoicon;
+        public AudioSource sound;
 
         void Update()
         {
@@ -17,6 +18,7 @@ namespace Assets.Scripts
                 photoicon.SetActive(true);
                 animator.SetTrigger("takePhoto");
                 firstPoint.SendMessage("Destroy");
+                sound.Play();
                 Destroy(creature);
             }
         }
