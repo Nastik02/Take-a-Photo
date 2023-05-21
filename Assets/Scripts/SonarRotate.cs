@@ -10,6 +10,7 @@ namespace Assets.Scripts
         private Transform sweepTransform;
         private float rotationSpeed = 360f;
         public GameObject effect;
+        public GameObject crEffect;
 
         private void Awake()
         {
@@ -22,7 +23,12 @@ namespace Assets.Scripts
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
             if (hit && hit.collider.gameObject.CompareTag("Ground"))
             {
+                
                 Instantiate(effect, hit.point, Quaternion.identity);
+            }
+            if (hit && hit.collider.gameObject.CompareTag("Creature1"))
+            {
+                Instantiate(crEffect, hit.point, Quaternion.identity);
             }
         }
         private void Update()
