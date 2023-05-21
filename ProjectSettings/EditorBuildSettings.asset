@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene2.dip.unity
     guid: c53ac259c3c6333419919c8f3c46d421
+  - enabled: 1
+    path: Assets/Scenes/DarkLocation.unity
+    guid: 6915db3c33d1fcf448a5d7eaf518c75f
   m_configObjects: {}

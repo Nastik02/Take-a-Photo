@@ -22,11 +22,11 @@ public class ShowTexst : MonoBehaviour
         {
             if(arrow!= null)
             {
-                if (Vector2.Distance(transform.position, player.transform.position) < 4f)
+                if (Vector2.Distance(transform.position, player.transform.position) < 2f)
                 {
                     arrow.SetActive(true);
                 }
-                if (Vector2.Distance(transform.position, player.transform.position) > 4f)
+                if (Vector2.Distance(transform.position, player.transform.position) > 2f)
                 {
                     arrow.SetActive(false);
                 }
