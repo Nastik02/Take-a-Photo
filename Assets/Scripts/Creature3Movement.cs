@@ -14,7 +14,7 @@ namespace Assets.Scripts
         {
             if (canChase)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.position, 8 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player.position, 15 * Time.deltaTime);
             }
             //transform.position = Vector3.MoveTowards(transform.position, player.position, 8 * Time.deltaTime);
             /*if (Vector2.Distance(transform.position, player.position) < 10f)
