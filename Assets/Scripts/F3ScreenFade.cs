@@ -24,6 +24,15 @@ namespace Assets.Scripts
             anim.SetBool("fade", false);
 
         }
-        
+        public void StartLight()
+        {
+            StartCoroutine(Light());
+        }
+        private IEnumerator Light()
+        {
+            yield return new WaitForSeconds(0.3f);
+            anim.SetTrigger("light");
+        }
+
     }
 }
