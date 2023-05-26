@@ -26,8 +26,13 @@ namespace Assets.Scripts
         // Update is called once per frame
         void Update()
         {
+            /*if (Vector2.Distance(transform.position, firstPoint.transform.position) < 2f)
+            {
+                animator.SetBool("IsExited", true);
+            }*/
             if (Vector2.Distance(transform.position, firstPoint.transform.position) < 2f && Input.GetKey(KeyCode.F))
             {
+                /*animator.SetBool("IsExited", false);*/
                 photoicon1.SetActive(true);
                 animator.SetTrigger("takePhoto");
                 firstPoint.SendMessage("Destroy");

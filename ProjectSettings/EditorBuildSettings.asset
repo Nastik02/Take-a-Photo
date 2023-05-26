@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DarkLocation.unity
     guid: 6915db3c33d1fcf448a5d7eaf518c75f
+  - enabled: 1
+    path: Assets/Scenes/gameover.unity
+    guid: 1aec01729094bd84f8b84108757351a5
   m_configObjects: {}

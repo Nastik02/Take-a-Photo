@@ -11,7 +11,7 @@ namespace Assets.Scripts
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                Application.Quit();
+                SceneManager.LoadScene(3);
             }
         }
     }
