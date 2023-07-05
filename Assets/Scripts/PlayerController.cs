@@ -1,46 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    private Vector2 direction;
-    private Rigidbody2D rb;
-    private SpriteRenderer sprite;
-    public Animator animator;
-    
-    
+    [SerializeField] private float _speed = 5f;
+    [SerializeField] private Joystick _joystick;
+
+    private Vector2 _direction;
+    private Rigidbody2D _rigidBody;
+    private SpriteRenderer _renderer;
+    private Animator _animator;
+    private bool _lookRight = true;
+    private bool _isMoving;
+
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
-
-    }
-    void Start()
-    {
+        _animator = GetComponent<Animator>();
+        _rigidBody = GetComponent<Rigidbody2D>();
+        _renderer = GetComponentInChildren<SpriteRenderer>();
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        sprite.flipX = Input.GetAxis("Horizontal") < 0.0f;
-        
-    }
-    void FixedUpdate()
-    {
+        _direction.x = Input.GetAxis("Horizontal");
+        _direction.y = Input.GetAxis("Vertical");
+
+        if (_joystick && _joystick.Direction.sqrMagnitude > 0)
+        {
+            _direction = _joystick.Direction;
+        }
+
         Movement();
-        animator.SetFloat("HorizontalSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal") * speed));
-        animator.SetFloat("VerticalSpeed", Input.GetAxisRaw("Vertical") * speed);
+
+        _renderer.flipX = _isMoving ? false : !_lookRight;
+        _renderer.flipY = _direction.x < 0.0f;
+        _animator.SetBool("IsMoving", _isMoving);
     }
     private void Movement()
     {
-        direction.x = Input.GetAxis("Horizontal");
-        direction.y = Input.GetAxis("Vertical");
-        rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+        _rigidBody.velocity = _direction * _speed;
+        _isMoving = _direction.sqrMagnitude > 0;
+        transform.rotation = Quaternion.identity;
+        if (_isMoving)
+        {
+            var angle = Vector2.SignedAngle(Vector2.right, _direction);
+            var targetRotation = new Vector3(0, 0, angle);
+            var lookTo = Quaternion.Euler(targetRotation);
+            transform.rotation = lookTo;
+            _lookRight = _direction.x > 0.0f;
+        }
     }
-    
-
-
 }
