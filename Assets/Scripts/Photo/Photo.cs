@@ -9,4 +9,5 @@ public class Photo : ScriptableObject
     [SerializeField] private string _id;
     [SerializeField] private Sprite _photo;
 
+    public Sprite Sprite { get => _photo; }
 }

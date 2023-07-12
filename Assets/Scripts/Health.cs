@@ -14,7 +14,7 @@ public class Health : Progressible, IDamageble
     {
         get
         {
-            return _value > 0;
+            return Value > 0;
         }
     }
 
@@ -32,11 +32,8 @@ public class Health : Progressible, IDamageble
     {
         if (IsAlive)
         {
-            _value += delta;
-            _value = Mathf.Clamp(_value, 0, _maxValue);
-            OnChange?.Invoke(_value);
-
-            if (_value == 0) Death();
+            Value = Mathf.Clamp(Value + delta, 0, _maxValue);
+            if (Value == 0) Death();
         }
     }
     private void Death()

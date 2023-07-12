@@ -5,11 +5,12 @@ using UnityEngine.Events;
 
 public abstract class Progressible: MonoBehaviour
 {
-    protected int _value = 5;
+    private int _value = 5;
     [SerializeField] protected int _maxValue = 5;
 
     public int Value { 
-        get => _value; 
+        get => _value;
+        protected set { _value = value; OnChange?.Invoke(_value); }
     }
     public UnityEvent<int> OnChange;
 }

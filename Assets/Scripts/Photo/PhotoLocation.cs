@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class PhotoLocation : MonoBehaviour, IInteractable
 {
@@ -11,12 +12,13 @@ public class PhotoLocation : MonoBehaviour, IInteractable
 
     public IInteractable.InteractableType Type => IInteractable.InteractableType.TakePhoto;
 
-    public bool IsAvailable => !IsTaked; 
+    public bool IsAvailable => !IsTaked;
+
+    public Photo SuccessfulPhoto { get => _successfulPhoto;  }
+    public Photo FailedPhoto { get => _failedPhoto;  }
 
     public void Interact()
     {
-        IsTaked = true;
+        PhotoSystem.TryTakePhoto(this);
     }
-
-   
 }
