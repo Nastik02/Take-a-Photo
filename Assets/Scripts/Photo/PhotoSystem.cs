@@ -44,10 +44,12 @@ public class PhotoSystem : MonoBehaviour
         if (success)
         {
             Debug.Log("success Photo");
+            StorySystem.AddStory(_currentLocation.SuccessfulPhoto.Id);
         }
         else
         {
             Debug.Log("failed Photo");
+            StorySystem.AddStory(_currentLocation.FailedPhoto.Id);
         }
     }
 }

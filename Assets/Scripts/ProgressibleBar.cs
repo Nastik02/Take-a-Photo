@@ -24,7 +24,8 @@ public class ProgressibleBar : MonoBehaviour
     {
         for (int i = 0; i < _markers.Length; i++)
         {
-            _markers[i].sprite = i < energy ? _full : _empty;
+            //_markers[i].sprite = i < energy ? _full : _empty;
+            _markers[i].gameObject.SetActive(i < energy);
         }
     }
 }
