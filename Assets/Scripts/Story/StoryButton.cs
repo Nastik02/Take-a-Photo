@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StoryButton : MonoBehaviour
 {
-    [SerializeField] private GameObject _journal;
     [SerializeField] private GameObject _storyMarker;
     private bool _hasNewStory;
     private void Start()
@@ -19,12 +18,11 @@ public class StoryButton : MonoBehaviour
         _storyMarker.SetActive(_hasNewStory);
     }
 
-    public void Clicked()
+    public void Click()
     {
         _hasNewStory = false;
         _storyMarker.SetActive(_hasNewStory);
-        _journal.SetActive(!_journal.activeSelf);
-
+        UI.ShowStoryJournal();
     }
     private void OnDestroy()
     {

@@ -48,6 +48,12 @@ public class PlayerController : FishController
             }
         }
 
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            UI.ShowStoryJournal();
+        }
+
         Movement(direction);
 
         _renderer.flipX = _isMoving ? false : !_lookRight;
