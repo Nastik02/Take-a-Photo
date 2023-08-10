@@ -7,6 +7,7 @@ public class UI : MonoBehaviour
     private static UI instance;
 
     [SerializeField] private StoriesJournal _storyJournal;
+    [SerializeField] private DialoguePanel _dialoguePanel;
 
     private void Awake()
     {
@@ -26,5 +27,12 @@ public class UI : MonoBehaviour
         journal.SetActive(!journal.activeSelf);
     }
 
-   
+   public static void ShowPhrase(Phrase phrase)
+    {
+        instance._dialoguePanel.Say(phrase.Person.Name, phrase.Person.Avatar, phrase.Text);
+    }
+    public static void ClosePanel()
+    {
+        instance._dialoguePanel.CloseDialoguePanel();
+    }
 }

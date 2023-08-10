@@ -13,10 +13,15 @@ public class DialoguePanel : MonoBehaviour
 
     public void Say(string name, Sprite avatar, string message)
     {
+        gameObject.SetActive(true);
         _namePanel.SetActive(!string.IsNullOrEmpty(name));
         _avatarPanel.SetActive(avatar != null);
         _avatar.sprite = avatar;
         _message.text = message;
         _name.text = name;
+    }
+    public void CloseDialoguePanel()
+    {
+        gameObject.SetActive(false);
     }
 }
